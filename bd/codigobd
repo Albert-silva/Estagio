@@ -1,0 +1,33 @@
+CREATE TABLE compsis.sis_usuario (
+	usuarioid INT auto_increment NOT NULL,
+	usuario varchar(50) NULL,
+	nome varchar(100) NULL,
+	senha varchar(100) NULL,
+	datacriacao DATETIME NULL,
+	dataalteracao DATETIME NULL,
+	CONSTRAINT sis_usuario_PK PRIMARY KEY (usuarioid)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE compsis.sis_grupo (
+	grupoid INT auto_increment NOT NULL,
+	nome varchar(100) NULL,
+	datacriacao DATETIME NULL,
+	dataalteracao DATETIME NULL,
+	CONSTRAINT sis_grupo_PK PRIMARY KEY (grupoid)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE compsis.sis_grupo_usuario (
+	grupoid INT auto_increment NOT NULL,
+	usuarioid INT auto_increment NOT NULL,
+	CONSTRAINT sis_grupo_usuario_FK FOREIGN KEY (usuarioid) REFERENCES compsis.sis_usuario(usuarioid),
+	CONSTRAINT sis_grupo_usuario_FK_1 FOREIGN KEY (grupoid) REFERENCES compsis.sis_grupo(grupoid)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
