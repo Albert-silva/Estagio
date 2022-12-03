@@ -36,3 +36,5 @@ Depois, rode a api com o comando :
 ```
 
 Abrir http://localhost:5000/
+
+Acesse a documentação através do link: https://documenter.getpostman.com/view/20420510/2s8YzMXQU9
